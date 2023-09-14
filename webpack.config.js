@@ -1,11 +1,13 @@
-const path = require("path");
+const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.tsx",
+  mode: 'development',
+  // TODO index.htmlを作成する記述が必要
+  entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -13,27 +15,27 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         use: [
           {
-            loader: "babel-loader",
-            options: { presets: ["@babel/preset-env", "@babel/react"] },
+            loader: 'babel-loader',
+            options: { presets: ['@babel/preset-env', '@babel/react'] },
           },
           {
-            loader: "ts-loader",
+            loader: 'ts-loader',
             options: {
-              configFile: path.resolve(__dirname, "tsconfig.json"),
+              configFile: path.resolve(__dirname, 'tsconfig.json'),
             },
           },
         ],
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpg|svg)$/i,
-        dependency: { not: ["url"] },
+        dependency: { not: ['url'] },
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
           },
         ],
       },
@@ -41,13 +43,19 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dist"),
+      directory: path.resolve(__dirname, 'dist'),
     },
-    host: "localhost",
+    host: 'localhost',
     port: 3000,
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".json"],
+    extensions: ['.js', '.ts', '.tsx', '.json'],
   },
-  target: "web",
+  plugins: [
+    new ESLintPlugin({
+      extensions: ['js', 'ts', 'tsx', '.json'],
+      exclude: 'node_modules',
+    }),
+  ],
+  target: 'web',
 };
