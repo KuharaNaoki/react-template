@@ -12,13 +12,12 @@
   "plugins": ["@typescript-eslint", "unused-imports"],
   "ignorePatterns": ["dist", "assets", "webpack.config.js"],
   "rules": {
-    "no-console": "warn", // console.logを記述すると注意
     "array-bracket-spacing": "error", // 配列を示す角括弧の直ぐ内側に空白を作らないこと
     "no-var": "error", // var禁止
-    "semi": ["error"], // セミコロン必須
+    "semi": "error", // セミコロン必須
     "indent": ["error", 2], // インデントは半角2個分のみ
     "quotes": ["error", "single"], // シングルクォーテーションのみ可
-    "max-len": ["error", { "code": 100 }], // 1行の最大文字数150文字に制限
+    "max-len": ["error", { "code": 100 }], // 1行の最大文字数100文字に制限
     "unused-imports/no-unused-imports": "error" //不要なimportの削除
   }
 }
