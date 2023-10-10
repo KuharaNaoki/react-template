@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "webpack serve --open",
-    "start": "webpack serve --open",
     "lint": "npx eslint src/**/* --fix"
   },
   "author": "",
@@ -39,6 +38,7 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "eslint-webpack-plugin": "^4.0.1",
     "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.3",
     "sass": "^1.68.0",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TermsOfService } from './features/termsOfService/components/TermsOfService';
+import { TermsOfService } from './features/termsOfService';
 
 function App() {
   return (

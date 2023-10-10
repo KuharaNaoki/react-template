@@ -1,5 +1,6 @@
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -33,7 +34,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
+              importLoaders: 1, // css-loaderの前にいくつのloaderを適用するかを設定
               modules: true,
             },
           },
@@ -65,6 +66,11 @@ module.exports = {
     new ESLintPlugin({
       extensions: ['js', 'ts', 'tsx', '.json'],
       exclude: 'node_modules',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: './index.html',
+      favicon: '',
     }),
   ],
   target: 'web',

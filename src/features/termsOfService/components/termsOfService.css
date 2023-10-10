@@ -1,0 +1,14 @@
+.termsOfService {
+  margin: 0 8px;
+}
+.top {
+  padding: 48px 0 8px;
+  text-align: center;
+}
+.middle {
+  padding-top: 48px;
+}
+.end {
+  padding-top: 48px;
+  text-align: end;
+}
